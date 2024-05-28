@@ -1,5 +1,5 @@
 // The Ethereum smart contract address
-const contractAddress = '0x027b0a524b137680fed0e1368BCFb3D2A2b10377';
+const contractAddress = '0xDb4f41EAc7CCaF723Cc60F9BD1fA488d6A89064a';
 
 // The ABI (Application Binary Interface) of the smart contract
 const contractABI = [
@@ -296,7 +296,7 @@ async function sendDownMessage() {
 }
 
 // Function to send a "horizontal message" to the smart contract
-async function sendHorizontalMessage() {
+	async function sendHorizontalMessage() {
     const address = document.getElementById('messageAddress').value;
     const message = document.getElementById('message').value;
 
