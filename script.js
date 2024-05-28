@@ -249,7 +249,7 @@ async function addMember() {
 }
 
 async function removeMember() {
-	const address = document.getElementById('addMemberAddress').value;
+	const address = document.getElementById('deleteMemberAddress').value;
 
 	try {
 		const tx = await contract.deleteMember(address);

@@ -25,6 +25,9 @@ contract messageSystem{
         emit downMessageLog(_address,Designation.HOD, Designation.facultiy, _message);
     }
     function horizontalMessage(address _address,string memory _message)public {
+        if(members[_address] == Designation.None){
+            revert("Member not in organisation");
+        }
         emit horizontalMessageLog(_address, members[_address], members[_address], _message);
     }
 
