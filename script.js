@@ -1,5 +1,5 @@
 // The Ethereum smart contract address
-const contractAddress = '0xabd39EFEbB421bAf3609B6b8fb588466D40e48dd';
+const contractAddress = '0x027b0a524b137680fed0e1368BCFb3D2A2b10377';
 
 // The ABI (Application Binary Interface) of the smart contract
 const contractABI = [
@@ -17,6 +17,19 @@ const contractABI = [
 			}
 		],
 		"name": "addMember",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_address",
+				"type": "address"
+			}
+		],
+		"name": "deleteMember",
 		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"
@@ -233,6 +246,19 @@ async function addMember() {
         console.error(error);
         alert('Failed to add member');
     }
+}
+
+async function removeMember() {
+	const address = document.getElementById('addMemberAddress').value;
+
+	try {
+		const tx = await contract.deleteMember(address);
+		await tx.wait();
+		alert("Member deleted successfully");
+	} catch (error){
+		console.log(error);
+		alert("Failed to remove memeber");
+	}
 }
 
 // Function to send an "up message" to the smart contract

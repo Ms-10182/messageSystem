@@ -1,9 +1,9 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.7;
 
-contract MessageSystem{
+contract messageSystem{
 
-    enum Designation{HOD,facultiy}
+    enum Designation{HOD,facultiy,None}
     mapping(address => Designation) public members;
 
 
@@ -26,6 +26,10 @@ contract MessageSystem{
     }
     function horizontalMessage(address _address,string memory _message)public {
         emit horizontalMessageLog(_address, members[_address], members[_address], _message);
+    }
+
+    function deleteMember(address _address)public{
+        members[_address] =Designation.None;
     }
     //0x5B38Da6a701c568545dCfcB03FcB875f56beddC4 - hod
     //0xAb8483F64d9C6d1EcF9b849Ae677dD3315835cb2 - faculity
